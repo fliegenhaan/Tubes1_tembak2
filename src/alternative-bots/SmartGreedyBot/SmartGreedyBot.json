@@ -1,0 +1,16 @@
+{
+    "name": "SmartGreedyBot",
+    "version": "1.0",
+    "authors": [
+      "Raihaan",
+      "Perdana"
+    ],
+    "description": "An anti-walls bot that circle the arena constantly while shooting",
+    "homepage": "",
+    "countryCodes": [
+      "id"
+    ],
+    "platform": ".Net 6.0",
+    "programmingLang": "C# 10.0"
+  }
+  
