@@ -1,0 +1,15 @@
+{
+    "name": "SurvivorBot",
+    "version": "1.0",
+    "authors": [
+      "Tembak2"
+    ],
+    "description": "A Bot whose main goal is to survive until the end of the game",
+    "homepage": "",
+    "countryCodes": [
+      "id"
+    ],
+    "platform": ".Net 6.0",
+    "programmingLang": "C# 10.0"
+  }
+  
