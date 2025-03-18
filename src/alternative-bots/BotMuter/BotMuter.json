@@ -1,0 +1,11 @@
+{
+    "name": "BotMuter",
+    "version": "1.0",
+    "authors": [ "Rehan", "Abizzar", "Mahesa"],
+    "description": "Greedy by Muter, kalo ada musuh langsung nembak",
+    "homepage": "«…»",
+    "countryCodes": [ "id" ],
+    "platform": "6.Net",
+    "programmingLang": "C#"
+  }
+  
