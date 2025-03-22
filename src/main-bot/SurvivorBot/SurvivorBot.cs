@@ -27,15 +27,17 @@ public class SurvivorBot : Bot
             // Gerakan acak untuk menghindari serangan lawan
             if (movingForward)
             {
-                SetForward(rng.Next(100, 400));
+                SetForward(rng.Next(800, 1600));
+                SetTurnRight(rng.Next(30, 90));
             }
             else
             {
-                SetBack(rng.Next(100, 400));
+                SetBack(rng.Next(800, 1600));
+                SetTurnRight(rng.Next(30, 90));
             }
 
-            // Rotasi acak agar susah ditembak
-            SetTurnRight(rng.Next(30, 90));
+            TurnGunLeft(180);
+            TurnGunRight(180);
             WaitFor(new TurnCompleteCondition(this));
         }
     }
@@ -50,18 +52,22 @@ public class SurvivorBot : Bot
         {
             Fire(firePower);
         }
+        else if (Energy > 10)
+        {
+            Fire(0.5); // Masih bisa menembak
+        }
         else
         {
-            // Kalau energi rendah,  menghindar dari pertempuran
             SetTurnRight(rng.Next(60, 120));
-            SetBack(200);
+            SetBack(300); 
         }
+
     }
 
     public override void OnHitWall(HitWallEvent e)
     {
         // Menghindar dari tembok
-        Back(50);
+        Back(100);
         SetTurnRight(rng.Next(80, 120));
     }
 
@@ -70,7 +76,8 @@ public class SurvivorBot : Bot
         // Jika nabrak musuh, mundur dan tetap greedy menyerang
         if (e.IsRammed)
         {
-            Back(100);
+            Back(150);
+            SetTurnRight(rng.Next(90, 180));
             Fire(3);
         }
         else
