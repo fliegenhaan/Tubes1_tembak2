@@ -1,0 +1,9 @@
+tipe bot:
+agresif? evasive?
+
+evasive
+
+overview: nyampah. runs when other's energy are > 50. if another's energy is =<50 then attack that tank.
+
+Algorithm:
+

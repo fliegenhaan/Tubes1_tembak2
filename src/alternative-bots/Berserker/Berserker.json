@@ -4,11 +4,10 @@
   "authors": [
     "Mahesa", "Raihaan", "Abizzar"
   ],
-  "description": "Greedy by Immediate Gain",
+  "description": "Greedy by Aggression. Prioritizes damage and quick movements",
   "homepage": "",
   "countryCodes": [
-    "us",
-    "dk"
+    "id"
   ],
   "platform": ".Net 6.0",
   "programmingLang": "C# 10.0"
