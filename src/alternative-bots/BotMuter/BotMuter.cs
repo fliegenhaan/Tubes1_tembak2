@@ -2,19 +2,14 @@ using System.Drawing;
 using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
 
-// Modification from templatebot
 public class BotMuter : Bot
 {
-    // The main method starts our bot
     static void Main(string[] args)
     {
         new BotMuter().Start();
     }
-
-    // Constructor, which loads the bot config file
     BotMuter() : base(BotInfo.FromFile("BotMuter.json")) { }
 
-    // Called when a new round is started -> initialize and do some movement
     public override void Run()
     {
 
@@ -26,7 +21,6 @@ public class BotMuter : Bot
         TracksColor = Color.FromArgb(0x99, 0x33, 0x00);
         GunColor = Color.FromArgb(0xCC, 0x55, 0x00);
 
-        // Repeat while the bot is running
         while (IsRunning)
         {
             Forward(100);
@@ -49,19 +43,15 @@ public class BotMuter : Bot
         }
     }
 
-    // We saw another bot -> fire!
     public override void OnScannedBot(ScannedBotEvent evt)
     {
         Fire(3);
     }
 
-    // We were hit by a bullet -> turn perpendicular to the bullet
     public override void OnHitByBullet(HitByBulletEvent evt)
     {
-        // Calculate the bearing to the direction of the bullet
         var bearing = CalcBearing(evt.Bullet.Direction);
 
-        // Turn 90 degrees to the bullet direction based on the bearing
         TurnLeft(90 - bearing);
         Forward(120);
     }
