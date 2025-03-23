@@ -63,14 +63,14 @@ public class BotMuter : Bot
 
         // Turn 90 degrees to the bullet direction based on the bearing
         TurnLeft(90 - bearing);
+        Forward(120);
     }
 
     public override void OnHitWall(HitWallEvent e)
     {
-        TurnRight(180);
+        TurnRight(120);
         Forward(200);
     }
-
 
 }
 
