@@ -2,7 +2,7 @@
     "name": "BotMuter",
     "version": "1.0",
     "authors": [ "Rehan", "Abizzar", "Mahesa"],
-    "description": "Greedy by Aggression: Solusi ini mengutamakan damage output dan fast reaction movement.",
+    "description": "Greedy by Maximum Firepower: Strategi ini berfokus pada serangan dengan selalu menggunakan tembakan berkekuatan penuh tanpa mempertimbangkan efisiensi energi.",
     "homepage": "«…»",
     "countryCodes": [ "id" ],
     "platform": "6.Net",
