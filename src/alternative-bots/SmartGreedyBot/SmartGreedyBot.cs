@@ -3,70 +3,57 @@ using System.Drawing;
 using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
 
-public class SiPintar : Bot
+public class SiGreedy : Bot
 {
     static void Main(string[] args)
     {
-        new SiPintar().Start();
+        new SiGreedy().Start();
     }
 
-    SiPintar() : base(BotInfo.FromFile("SmartGreedyBot.json")) { }
+    SiGreedy() : base(BotInfo.FromFile("SmartGreedyBot.json")) { }
 
     public override void Run() 
     {
-        BodyColor = Color.Green;
-        TurretColor = Color.Gray;
-        RadarColor = Color.Yellow;
-        BulletColor = Color.Green;
-        ScanColor = Color.Red;
+        BodyColor = Color.Red;
+        TurretColor = Color.Black;
+        RadarColor = Color.Red;
+        BulletColor = Color.Red;
+        ScanColor = Color.White;
 
-        // Bot akan terus bergerak dalam pola 3/4 arena sambil memindai
+        // Tidak ada patroli! Bot hanya akan mengejar musuh.
         while (IsRunning)
         {
-            ExecutePatrolling();
-            TurnRadarRight(360); // Scan 360 derajat sambil berjalan
-            Go(); 
+            TurnGunRight(360); // Radar selalu mencari musuh
+            Go();
         }
-    }
-
-    private void ExecutePatrolling()
-    {
-        // Gerakan patroli secara dinamis
-        Forward(150);
-        TurnRight(45);
-        Forward(100);
-        TurnLeft(90);
-        Forward(120);
-        TurnRight(60);
     }
 
     public override void OnScannedBot(ScannedBotEvent e)
     {
-        double distance = DistanceTo(e.X, e.Y);
-        double gunBearing = NormalizeRelativeAngle(DirectionTo(e.X, e.Y) - GunDirection);
+        Fire(3);
 
-        TurnGunLeft(gunBearing);
-        
-        // Sesuaikan power tembakan berdasarkan jarak musuh
-        double firePower = (distance < 200) ? 3 : (distance < 400) ? 2 : 1;
-        Fire(firePower);
+        // **Kejar musuh langsung tanpa perhitungan rumit**
+        Forward(300); // Maju ke arah musuh
+        Fire(3);
+
+        // **Jika masih jauh, terus maju**
+        Forward(400);
+        Fire(3);
     }
 
     public override void OnHitBot(HitBotEvent e)
     {
-        double gunBearing = NormalizeRelativeAngle(DirectionTo(e.X, e.Y) - GunDirection);
-        TurnGunLeft(gunBearing);
-        Fire(3); // Maksimal damage jika bertabrakan
-
-        // Hindari musuh dengan mundur dan belok
-        Back(50);
-        TurnRight(45);
+        // **Dorong musuh lebih jauh sambil menembak!**
+        Forward(500);
+        Fire(3);
+        Back(100); // Sedikit mundur lalu tembak lagi
+        Fire(3);
     }
 
     public override void OnHitWall(HitWallEvent e)
     {
-        // Jika menabrak dinding, mundur sedikit lalu berputar
-        Back(50);
+        // **Mundur cepat lalu balik ke arah musuh**
+        Back(150);
         TurnRight(90);
         Go();
     }
