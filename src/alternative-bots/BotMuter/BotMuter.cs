@@ -8,11 +8,11 @@ public class BotMuter : Bot
     {
         new BotMuter().Start();
     }
-    BotMuter() : base(BotInfo.FromFile("BotMuter.json")) { }
+    BotMuter() : base(BotInfo.FromFile("BotMuter.json")) { } // Inisialisasi bot (Konstruktor)
 
     public override void Run()
     {
-
+        // Set warna tampilan bot
         BodyColor = Color.FromArgb(0xFF, 0x8C, 0x00);
         TurretColor = Color.FromArgb(0xFF, 0xA5, 0x00);
         RadarColor = Color.FromArgb(0xFF, 0xD7, 0x00);
@@ -23,7 +23,7 @@ public class BotMuter : Bot
 
         while (IsRunning)
         {
-            Forward(100);
+            Forward(100);       //Pergerakan Bot mengulang membentuk segi lima
             TurnGunRight(135);
             TurnRight(72);
             TurnGunRight(135);
@@ -43,6 +43,7 @@ public class BotMuter : Bot
         }
     }
 
+    // Ketika Menemukan musuh langsung menembak
     public override void OnScannedBot(ScannedBotEvent evt)
     {
         Fire(3);
@@ -52,13 +53,13 @@ public class BotMuter : Bot
     {
         var bearing = CalcBearing(evt.Bullet.Direction);
 
-        TurnLeft(90 - bearing);
-        Forward(120);
+        TurnLeft(90 - bearing);                     // memutar arah 90 derajat dari arah datangnya tembakan
+        Forward(120);                               // bergerak menjauh
     }
 
     public override void OnHitWall(HitWallEvent e)
     {
-        TurnRight(120);
+        TurnRight(120);                             // ketika menabrak dinding memutar badan sejauh 120 derajat lalu berjalan sejauh 200
         Forward(200);
     }
 
