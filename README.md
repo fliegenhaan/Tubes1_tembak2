@@ -56,6 +56,9 @@ dotnet build
 6. Setelah Boot berhasil, Bot akan otomatis masuk ke Joined Bots, lalu "Add" atau "Add All" untuk menambah semua bot masuk ke battle participants
 7. Lalu klik "Start Battle" untuk memulai pertandingan
 
+### Apabila Tidak Bisa Diboot
+Hapus folder "bin" yang terdapat pada folder bot yang tidak dapat di-boot, kemudian lakukan boot kembali
+
 ## Author
 - 13523124 - Muhammad Raihaan Perdana
 - 13523140 - Mahesa Fadhillah Andre
