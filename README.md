@@ -49,9 +49,12 @@ dotnet build
 
 ### Menjalankan Bot
 1. Buka aplikasi Robocode Tank Royale GUI
-2. Tambahkan direktori bot ke dalam "Bot Root Directories"
-3. Pilih bot yang ingin dijalankan
-4. Klik "Start Battle" untuk memulai pertandingan
+2. Tambahkan direktori bot ke dalam "Bot Root Directories" (atau klik Ctrl + D)
+3. Pilih folder bot yang ingin dijalankan dengan mengklik "Add" lalu pastikan tercentang 
+4. Klik "Battle" dan "Start Battle" untuk membuat konfigurasi pertandingan (atau klik Ctrl + B)
+5. Pilih Bot yang ingin dipertarungkan lalu klik "Boot"
+6. Setelah Boot berhasil, Bot akan otomatis masuk ke Joined Bots, lalu "Add" atau "Add All" untuk menambah semua bot masuk ke battle participants
+7. Lalu klik "Start Battle" untuk memulai pertandingan
 
 ## Author
 - 13523124 - Muhammad Raihaan Perdana
