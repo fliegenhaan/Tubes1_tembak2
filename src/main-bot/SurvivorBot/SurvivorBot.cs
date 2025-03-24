@@ -24,7 +24,6 @@ public class SurvivorBot : Bot
 
         while (IsRunning)
         {
-            // Gerakan acak untuk menghindari serangan lawan
             if (movingForward)
             {
                 SetForward(rng.Next(800, 1600));
@@ -38,7 +37,6 @@ public class SurvivorBot : Bot
 
             TurnGunLeft(180);
             TurnGunRight(180);
-            WaitFor(new TurnCompleteCondition(this));
         }
     }
 
@@ -85,11 +83,4 @@ public class SurvivorBot : Bot
             Fire(2);
         }
     }
-}
-
-public class TurnCompleteCondition : Condition
-{
-    private readonly Bot bot;
-    public TurnCompleteCondition(Bot bot) { this.bot = bot; }
-    public override bool Test() { return bot.TurnRemaining == 0; }
 }
